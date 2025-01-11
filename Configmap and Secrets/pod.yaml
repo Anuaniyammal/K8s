@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: configmap-secret-demo
+spec:
+  containers:
+    - name: demo-container
+      image: nginx
+      env:
+        - name: APP_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: example-configmap
+              key: app_name
+        - name: LOG_LEVEL
+          valueFrom:
+            configMapKeyRef:
+              name: example-configmap
+              key: log_level
+        - name: USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: example-secret
+              key: username
+        - name: PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: example-secret
+              key: password
