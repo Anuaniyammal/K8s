@@ -1,4 +1,3 @@
-#Enable FileStore CSI driver for cluster if it is stuck in pending state
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
